@@ -1,0 +1,30 @@
+﻿<m:MyCustomToken xmlns:m="urn:mycustomtoken" m:Id="SomeID" m:Issuer="urn:SomeIssuer"
+m:Audience="https://mywebsite/" m:ValidFrom="2013-01-01" m:ValidTo="2099-12-31">
+  <m:Claim Name="FirstName" Namespace="urn:firstname">John</m:Claim>
+  <m:Claim Name="LastName" Namespace="urn:lastname">Doe</m:Claim>
+  <m:Claim Name="Role" Namespace="urn:role">Supervisor</m:Claim>
+  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+    <SignedInfo>
+      <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/
+xml-exc-c14n#" />
+      <SignatureMethod Algorithm="http://www.w3.org/2000/09/
+xmldsig#rsa-sha1" />
+      <Reference URI="">
+        <Transforms>
+          <Transform Algorithm="http://www.w3.org/2000/09/
+xmldsig#enveloped-signature" />
+          <Transform Algorithm="http://www.w3.org/2001/10/
+xml-exc-c14n#" />
+        </Transforms>
+        <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <DigestValue>SomeDigestValueHere</DigestValue>
+      </Reference>
+    </SignedInfo>
+    <SignatureValue>… not shown …</SignatureValue>
+    <KeyInfo>
+      <X509Data>
+        <X509Certificate>… not shown …</X509Certificate>
+      </X509Data>
+    </KeyInfo>
+  </Signature>
+</m:MyCustomToken>
