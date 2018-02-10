@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
 
@@ -34,5 +35,18 @@ namespace ClaimsBasedAuthentication.Controllers
             claimsIdentityCollection.Add(newIdentity);
             return claimsIdentityCollection;
         }
+
+        //using (RijndaelManaged rijndaelManaged = new RijndaelManaged())
+        //{
+        //// assumes that the key and initialization vectors are already configured
+        //CryptoStream crypoStream = new CryptoStream(myManagedStream, rijndaelManaged.CreateEncryptor(), CryptoStreamMode.Write);
+        //};
+
+        //// create the hash code of the text to sign
+        //SHA1 sha = SHA1.Create();
+        //byte[] hashcode = sha.ComputeHash(TextToConvert);
+        //// use the CreateSignature method to sign the data
+        //DSA dsa = DSA.Create();
+        //byte[] signature = dsa.CreateSignature(hashcode);
     }
 }
